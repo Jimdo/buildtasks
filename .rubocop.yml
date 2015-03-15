@@ -1,0 +1,23 @@
+AllCops:
+  Include:
+    - "Gemfile"
+    - "Rakefile"
+
+AlignParameters:
+  Enabled: false
+Documentation:
+  Enabled: false
+Encoding:
+  Enabled: false
+FileName:
+  Enabled: false
+GuardClause:
+  Enabled: false
+HashSyntax:
+  EnforcedStyle: hash_rockets
+LineLength:
+  Enabled: false
+SingleSpaceBeforeFirstArg:
+  Enabled: false
+StringLiterals:
+  Enabled: false
