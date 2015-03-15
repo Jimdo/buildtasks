@@ -1,7 +1,3 @@
-#
-# Ruby lib used by all recipes based on git-buildpackage
-#
-
 require "buildtasks/git_buildpackage/dsl"
 require "buildtasks/git_buildpackage/tasks"
 

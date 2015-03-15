@@ -1,7 +1,3 @@
-#
-# Ruby lib used by all recipes based on fpm-cookery
-#
-
 require "buildtasks/fpm_cookery/dsl"
 require "buildtasks/fpm_cookery/tasks"
 
