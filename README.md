@@ -20,9 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-Require the `buildtasks` gem in a `Rakefile` and call `BuildTasks::Tool.define_tasks`,
+Require the `buildtasks` gem in a `Rakefile` and call `BuildTasks::Tool.define`,
 where "Tool" is the name of the build tool you want to use (see below for a list
-of options you can pass to `.define_tasks`).
+of options you can pass to `.define`).
 
 This will create two Rake tasks:
 
@@ -42,7 +42,7 @@ To build packages with [fpm-cookery], create a `Rakefile` with this content:
 ```ruby
 require "buildtasks"
 
-BuildTasks::FPMCookery.define_tasks do
+BuildTasks::FPMCookery.define do
   recipe              "recipe.rb" # name of recipe file (optional)
   fpm_cookery_version "0.25.0"    # version of fpm-cookery gem to use (optional)
   fpm_version         "1.3.3"     # version of fpm gem to use (optional)
@@ -54,7 +54,7 @@ In case you don't need to configure any attributes:
 ```ruby
 require "buildtasks"
 
-BuildTasks::FPMCookery.define_tasks
+BuildTasks::FPMCookery.define
 ```
 
 Note that fpm-cookery will automatically install dependencies specified by the
@@ -68,7 +68,7 @@ content:
 ```ruby
 require "buildtasks"
 
-BuildTasks::GitBuildpackage.define_tasks do
+BuildTasks::GitBuildpackage.define do
   name        "thrift" # project name
   version     "0.9.1"  # git ref to build
   source      "https://github.com/apache/thrift" # git repository to clone
@@ -81,7 +81,7 @@ installed before building.
 
 ### Extending Rake tasks
 
-`.define_tasks` generates ordinary Rake tasks, which you can extend.
+`.define` generates ordinary Rake tasks, which you can extend.
 
 For example, here's how to download some file before fpm-cookery starts
 building:
@@ -89,7 +89,7 @@ building:
 ```ruby
 require "buildtasks"
 
-BuildTasks::FPMCookery.define_tasks
+BuildTasks::FPMCookery.define
 
 task :download do
   sh "curl ..."
