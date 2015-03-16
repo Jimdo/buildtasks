@@ -1,5 +1,7 @@
 # BuildTasks
 
+[![Build Status](https://travis-ci.org/Jimdo/buildtasks.svg?branch=master)](https://travis-ci.org/Jimdo/buildtasks)
+
 Rake tasks to build Debian packages with [git-buildpackage] and [fpm-cookery].
 
 ## Installation
