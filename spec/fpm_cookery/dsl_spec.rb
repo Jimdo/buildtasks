@@ -5,7 +5,7 @@ describe BuildTasks::FPMCookery::DSL do
 
   it "initializes attributes" do
     expect(subject.recipe).to eq "recipe.rb"
-    expect(subject.fpm_cookery_version).to eq "~> 0.25.0"
+    expect(subject.fpm_cookery_version).to eq "~> 0.27.0"
     expect(subject.fpm_version).to eq "~> 1.3.3"
   end
 
