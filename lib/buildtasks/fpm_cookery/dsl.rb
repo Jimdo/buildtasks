@@ -7,7 +7,7 @@ module BuildTasks
 
       def initialize(&block)
         @recipe              = "recipe.rb"
-        @fpm_cookery_version = "~> 0.25.0"
+        @fpm_cookery_version = "~> 0.27.0"
         @fpm_version         = "~> 1.3.3"
 
         instance_eval(&block) if block_given?
