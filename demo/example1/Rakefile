@@ -1,0 +1,7 @@
+require "buildtasks"
+
+BuildTasks::GitBuildpackage.define do
+  name    "periodicnoise"
+  version "debian/1.1"
+  source  "https://github.com/Jimdo/periodicnoise"
+end

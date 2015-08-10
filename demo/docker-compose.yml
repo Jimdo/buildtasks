@@ -1,0 +1,6 @@
+demo:
+  build: .
+  command: /bin/bash
+  volumes:
+    - .:/data
+  working_dir: /data
