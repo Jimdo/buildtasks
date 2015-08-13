@@ -3,4 +3,7 @@ demo:
   command: /bin/bash
   volumes:
     - .:/data
+    - pkg:/pkg
+  environment:
+    - PUBLISH_DIR=/pkg
   working_dir: /data
