@@ -12,7 +12,6 @@ RUN apt-get update && apt-get install -y \
         make \
         openssh-client \
         pristine-tar \
-        rake \
         rsync \
         wget
 
