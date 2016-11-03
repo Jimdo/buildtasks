@@ -1,6 +1,8 @@
 language: ruby
 
-rvm: 2.1
+sudo: false
+
+rvm: 2.3
 
 script: bundle exec rake test
 
