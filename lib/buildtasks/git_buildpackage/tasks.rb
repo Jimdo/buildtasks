@@ -86,9 +86,10 @@ module BuildTasks
         desc "Build packages"
         task :build => [:clone, :patch, :deps] do
           in_git_dir do
-            sh "git-buildpackage", "--git-ignore-branch",
-                                   "--git-ignore-new",
-                                   "--git-builder=#{BUILD_CMD}"
+            cmd = gbp_cmd + ["--git-ignore-branch",
+                             "--git-ignore-new",
+                             "--git-builder=#{BUILD_CMD}"]
+            sh(*cmd)
           end
         end
 
@@ -114,6 +115,14 @@ module BuildTasks
 
       def in_git_dir
         cd(git_dir) { yield }
+      end
+
+      def gbp_cmd
+        path = `which git-buildpackage`
+        return [path.strip] if $CHILD_STATUS.success?
+        path = `which gbp`
+        return [path.strip, "buildpackage"] if $?.success?
+        raise "git-buildpackage command not found"
       end
     end
   end
