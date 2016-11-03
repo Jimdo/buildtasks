@@ -121,7 +121,7 @@ module BuildTasks
         path = `which git-buildpackage`
         return [path.strip] if $CHILD_STATUS.success?
         path = `which gbp`
-        return [path.strip, "buildpackage"] if $?.success?
+        return [path.strip, "buildpackage"] if $CHILD_STATUS.success?
         raise "git-buildpackage command not found"
       end
     end
