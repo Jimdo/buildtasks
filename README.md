@@ -103,7 +103,7 @@ task :build => :download
 
 Author:: Mathias Lafeldt (mathias.lafeldt@jimdo.com)
 
-Copyright:: 2014-2015, Jimdo GmbH
+Copyright:: 2014-2016, Jimdo GmbH
 
 Licensed under the Apache 2.0 license. See [LICENSE](LICENSE) for details.
 
