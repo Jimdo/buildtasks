@@ -5,7 +5,7 @@ require 'buildtasks/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "buildtasks"
-  spec.version       = BuildTasks::VERSION
+  spec.version       = BuildTasks::VERSION.dup
   spec.authors       = ["Mathias Lafeldt"]
   spec.email         = ["mathias.lafeldt@jimdo.com"]
   spec.summary       = %q{Rake tasks to build Debian packages}
