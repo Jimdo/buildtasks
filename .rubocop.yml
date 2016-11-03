@@ -17,7 +17,7 @@ HashSyntax:
   EnforcedStyle: hash_rockets
 LineLength:
   Enabled: false
-SingleSpaceBeforeFirstArg:
+SpaceBeforeFirstArg:
   Enabled: false
 StringLiterals:
   Enabled: false

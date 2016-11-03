@@ -10,12 +10,12 @@ describe BuildTasks::Mixins::Tasks do
   describe "#sudo" do
     it "runs command via sudo if not root" do
       allow(Process).to receive(:uid).and_return 1000
-      expect(c.sudo "shutdown -fr").to eq "sudo shutdown -fr"
+      expect(c.sudo("shutdown -fr")).to eq "sudo shutdown -fr"
     end
 
     it "runs command as-is if already root" do
       allow(Process).to receive(:uid).and_return 0
-      expect(c.sudo "shutdown -fr").to eq "shutdown -fr"
+      expect(c.sudo("shutdown -fr")).to eq "shutdown -fr"
     end
   end
 end

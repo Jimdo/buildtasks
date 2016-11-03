@@ -4,7 +4,7 @@ module BuildTasks
       def _validate(symbol, arg, validation)
         kinds = Array(validation.fetch(:kind_of))
         unless kinds.any? { |k| arg.is_a?(k) }
-          fail ArgumentError, "#{symbol} must be of kind #{kinds}"
+          raise ArgumentError, "#{symbol} must be of kind #{kinds}"
         end
       end
 

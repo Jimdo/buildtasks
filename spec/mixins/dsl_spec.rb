@@ -32,7 +32,7 @@ describe BuildTasks::Mixins::DSL do
         expect do
           c.set_or_return(:some_attribute, "some-value", :kind_of => String)
           c.set_or_return(:some_attribute, :some_value, :kind_of => Symbol)
-          c.set_or_return(:some_attribute, 1234, :kind_of => Fixnum)
+          c.set_or_return(:some_attribute, 1234, :kind_of => Integer)
           c.set_or_return(:some_attribute, true, :kind_of => TrueClass)
           c.set_or_return(:some_attribute, false, :kind_of => FalseClass)
           c.set_or_return(:some_attribute, 1, :kind_of => [TrueClass, Integer])

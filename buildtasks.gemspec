@@ -22,5 +22,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rspec"
-  spec.add_development_dependency "rubocop", "~> 0.24.1"
+  spec.add_development_dependency "rubocop", "~> 0.45.0"
 end

@@ -14,7 +14,7 @@ describe BuildTasks::GitBuildpackage::Tasks do
     )
 
     BuildTasks::GitBuildpackage::Tasks.new(attributes)
-    expect(Rake::Task.task_defined? "build").to be_truthy
-    expect(Rake::Task.task_defined? "publish").to be_truthy
+    expect(Rake::Task.task_defined?("build")).to be_truthy
+    expect(Rake::Task.task_defined?("publish")).to be_truthy
   end
 end

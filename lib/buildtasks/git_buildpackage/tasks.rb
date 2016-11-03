@@ -6,7 +6,7 @@ require "forwardable"
 module BuildTasks
   module GitBuildpackage
     class Tasks < ::Rake::TaskLib
-      BUILD_CMD = 'debuild -i\.git -I.git -uc -us -b'
+      BUILD_CMD = 'debuild -i\.git -I.git -uc -us -b'.freeze
 
       include BuildTasks::Mixins::Tasks
 
@@ -27,14 +27,14 @@ module BuildTasks
       end
 
       def validate_attributes
-        fail MissingAttributeError, "name"    unless name
-        fail MissingAttributeError, "version" unless version
-        fail MissingAttributeError, "source"  unless source
+        raise MissingAttributeError, "name"    unless name
+        raise MissingAttributeError, "version" unless version
+        raise MissingAttributeError, "source"  unless source
 
-        patches.each { |p| fail Errno::ENOENT, p unless File.exist?(abspath(p)) }
+        patches.each { |p| raise Errno::ENOENT, p unless File.exist?(abspath(p)) }
       end
 
-      def update_changelog # rubocop:disable MethodLength
+      def update_changelog # rubocop:disable MethodLength,AbcSize
         return unless changelog
 
         text = changelog[:text]
@@ -50,7 +50,7 @@ module BuildTasks
         sh "dch", "--no-auto-nmu", *args
       end
 
-      def define_tasks # rubocop:disable MethodLength
+      def define_tasks # rubocop:disable MethodLength,AbcSize
         task :default => :build
 
         file git_dir do |t|
@@ -77,7 +77,7 @@ module BuildTasks
         task :deps => :patch do
           in_git_dir do
             control_file = "debian/control"
-            fail Errno::ENOENT, control_file unless File.exist?(control_file)
+            raise Errno::ENOENT, control_file unless File.exist?(control_file)
             env = "DEBIAN_FRONTEND=noninteractive"
             sh sudo("#{env} mk-build-deps -i -r -t 'apt-get -y' #{control_file}")
           end
@@ -95,7 +95,7 @@ module BuildTasks
         desc "Publish built packages"
         task :publish => :build do
           publish_dir = ENV["PUBLISH_DIR"]
-          fail "PUBLISH_DIR variable not set in environment" unless publish_dir
+          raise "PUBLISH_DIR variable not set in environment" unless publish_dir
 
           mkdir_p publish_dir
           cp Dir["*.deb"], publish_dir
@@ -109,7 +109,7 @@ module BuildTasks
       end
 
       def git_dir
-        "git-#{version.to_s.gsub("/", "-")}"
+        "git-#{version.to_s.tr('/', '-')}"
       end
 
       def in_git_dir

@@ -21,7 +21,7 @@ module BuildTasks
 
       def validate_attributes
         unless File.exist?(recipe)
-          fail InvalidAttributeError, "recipe file '#{recipe}' not found"
+          raise InvalidAttributeError, "recipe file '#{recipe}' not found"
         end
 
         if File.exist?("Gemfile")
@@ -29,7 +29,7 @@ module BuildTasks
         end
       end
 
-      def define_tasks # rubocop:disable MethodLength
+      def define_tasks # rubocop:disable MethodLength,AbcSize
         task :default => :build
 
         file "Gemfile" do |t|
@@ -49,7 +49,7 @@ module BuildTasks
         desc "Publish built packages"
         task :publish => :build do
           publish_dir = ENV["PUBLISH_DIR"]
-          fail "PUBLISH_DIR variable not set in environment" unless publish_dir
+          raise "PUBLISH_DIR variable not set in environment" unless publish_dir
 
           mkdir_p publish_dir
           cp Dir["pkg/*.deb"], publish_dir

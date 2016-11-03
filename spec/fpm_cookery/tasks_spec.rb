@@ -19,8 +19,8 @@ describe BuildTasks::FPMCookery::Tasks do
     allow(File).to receive(:exist?).with("Gemfile").and_return(false)
 
     BuildTasks::FPMCookery::Tasks.new(attributes)
-    expect(Rake::Task.task_defined? "build").to be_truthy
-    expect(Rake::Task.task_defined? "publish").to be_truthy
+    expect(Rake::Task.task_defined?("build")).to be_truthy
+    expect(Rake::Task.task_defined?("publish")).to be_truthy
   end
 
   it "creates Gemfile to define gem dependencies" do
