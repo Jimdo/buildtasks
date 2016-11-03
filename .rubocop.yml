@@ -19,5 +19,7 @@ LineLength:
   Enabled: false
 SpaceBeforeFirstArg:
   Enabled: false
+SpecialGlobalVars:
+  Enabled: false
 StringLiterals:
   Enabled: false

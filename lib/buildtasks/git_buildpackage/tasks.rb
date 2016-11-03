@@ -119,9 +119,9 @@ module BuildTasks
 
       def gbp_cmd
         path = `which git-buildpackage`
-        return [path.strip] if $CHILD_STATUS.success?
+        return [path.strip] if $?.success?
         path = `which gbp`
-        return [path.strip, "buildpackage"] if $CHILD_STATUS.success?
+        return [path.strip, "buildpackage"] if $?.success?
         raise "git-buildpackage command not found"
       end
     end
